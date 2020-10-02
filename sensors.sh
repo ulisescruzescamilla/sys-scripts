@@ -4,8 +4,9 @@ export HOME=
 export DISPLAY=:0.0
 CURRENT_TEMP_CPU=$(sensors | grep -i Package | awk {'print $4'} | sed 's/.//;s/..°C$//')
 LIMIT=80
-LOG_FILE_NAME=temperature.log
 TIMESTAMP=`date "+%Y-%m-%d %H:%M:%S"`
+DATE=`date "+%Y-%m-%d"`
+LOG_FILE_NAME=$DATE-temperature.log
 
 # Save in log
 echo "[$TIMESTAMP] - CPU TEMPERATURE = $CURRENT_TEMP_CPU °C" >> $LOG_FILE_NAME
